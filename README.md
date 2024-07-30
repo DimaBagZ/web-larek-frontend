@@ -60,8 +60,7 @@ MVC-паттерн делит код на три слоя:
 2. в какую модель отнести, чтобы она среагировала и поменялась.
 
 ### Схема с архитектурой проекта:
-
-![MVC WEB-LAREK drawio](https://github.com/user-attachments/assets/6e9ddb55-6611-40d3-882f-26e9efda3aa5)
+![MVC WEB-LAREK(1 0) drawio](https://github.com/user-attachments/assets/b9fbe5d8-9fea-4cbb-a6bc-8a187ad2abc2)
 
 ## Базовый код
 ### 1. Класс `Component<T>`
