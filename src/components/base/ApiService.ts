@@ -1,6 +1,6 @@
 import { ApiPostMethods } from '../../types';
 
-export class Api {
+export class ApiService {
 	readonly baseUrl: string;
 	protected options: RequestInit;
 

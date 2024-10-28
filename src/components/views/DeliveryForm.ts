@@ -1,8 +1,8 @@
-import { IEvents, IDeliveryDetails, PaymentMethods } from '../../types';
+import { IEvents, IDeliveryDetails, PaymentOptions } from '../../types';
 import { ensureElement } from '../../utils/utils';
 import { Form } from './Form';
 
-export class DeliveryDetails extends Form<IDeliveryDetails> {
+export class DeliveryForm extends Form<IDeliveryDetails> {
 	protected _card: HTMLButtonElement;
 	protected _cash: HTMLButtonElement;
 	protected _address: HTMLInputElement;
@@ -23,7 +23,7 @@ export class DeliveryDetails extends Form<IDeliveryDetails> {
 			container
 		);
 		this._card.addEventListener('click', () => {
-			this.payment = 'онлайн';
+			this.paymentMethod = 'онлайн';
 			this.onInputChange('payment', 'онлайн');
 		});
 
@@ -32,7 +32,7 @@ export class DeliveryDetails extends Form<IDeliveryDetails> {
 			container
 		);
 		this._cash.addEventListener('click', () => {
-			this.payment = 'при получении';
+			this.paymentMethod = 'при получении';
 			this.onInputChange('payment', 'при получении');
 		});
 	}
@@ -42,7 +42,7 @@ export class DeliveryDetails extends Form<IDeliveryDetails> {
 			value;
 	}
 
-	set payment(value: PaymentMethods) {
+	set paymentMethod(value: PaymentOptions) {
 		this._card.classList.toggle('button_alt-active', value === 'онлайн');
 		this._cash.classList.toggle('button_alt-active', value === 'при получении');
 	}

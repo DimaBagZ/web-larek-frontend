@@ -3,8 +3,8 @@ export interface ICardActions {
 }
 
 export interface IFormState {
-	valid: boolean;
-	errors: {};
+	isValid: boolean;
+	errorMessages: {};
 }
 
 export interface IModalData {
@@ -14,7 +14,7 @@ export interface IModalData {
 export interface IPage {
 	counter: number;
 	catalog: HTMLElement[];
-	locked: boolean;
+	isScrollLocked: boolean;
 }
 
 export interface ISuccess {
@@ -33,10 +33,10 @@ export type CategoryType =
 	| 'кнопка';
 
 export interface IBasket {
-	products: IProduct[];
+	products: IProductInfo[];
 	total: number | null;
 }
-export interface IProduct {
+export interface IProductInfo {
 	id: string;
 	title: string;
 	category: CategoryType;
@@ -46,10 +46,10 @@ export interface IProduct {
 	inBasket: boolean;
 }
 
-export type PaymentMethods = 'онлайн' | 'при получении';
+export type PaymentOptions = 'онлайн' | 'при получении';
 
 export interface IDeliveryDetails {
-	payment: PaymentMethods;
+	payment: PaymentOptions;
 	address: string;
 }
 
@@ -59,11 +59,14 @@ export interface IContacts {
 }
 
 export interface IFormValidation {
-	valid: boolean;
-	errors: Partial<Record<keyof IOrder, string>>;
+	isValid: boolean;
+	errorMessages: Partial<Record<keyof IOrderDetails, string>>;
 }
 
-export type IOrder = IBasket & IDeliveryDetails & IContacts & IFormValidation;
+export type IOrderDetails = IBasket &
+	IDeliveryDetails &
+	IContacts &
+	IFormValidation;
 
 export type ApiListResponse<Type> = {
 	total: number;
@@ -73,7 +76,7 @@ export type ApiListResponse<Type> = {
 export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
 
 export interface ApiResponse {
-	items: IProduct[];
+	items: IProductInfo[];
 }
 
 export type EventName = string | RegExp;

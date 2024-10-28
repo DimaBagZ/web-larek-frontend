@@ -156,7 +156,7 @@ export function createElement<T extends HTMLElement>(
 	return element;
 }
 /**функция handlePrice, которая форматирует числовое значение цены
- * функция добавляет пробелы через каждые три цифры справа налево для цен, 
+ * функция добавляет пробелы через каждые три цифры справа налево для цен,
  * которые содержат 5 и более символов
  */
 export function handlePrice(price: number): string {

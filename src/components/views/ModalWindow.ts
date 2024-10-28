@@ -2,7 +2,7 @@ import { IEvents, IModalData } from '../../types';
 import { ensureElement } from '../../utils/utils';
 import { Component } from '../base/Component';
 
-export class Modal extends Component<IModalData> {
+export class ModalWindow extends Component<IModalData> {
 	protected _closeButton: HTMLButtonElement;
 	protected _content: HTMLElement;
 
@@ -35,8 +35,8 @@ export class Modal extends Component<IModalData> {
 		this.events.emit('modal:close');
 	}
 
-	render(data: IModalData): HTMLElement {
-		super.render(data);
+	renderContent(data: IModalData): HTMLElement {
+		super.renderContent(data);
 		this.open();
 		return this.container;
 	}

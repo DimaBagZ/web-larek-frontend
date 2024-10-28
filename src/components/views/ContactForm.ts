@@ -2,7 +2,7 @@ import { IContacts, IEvents } from '../../types';
 import { ensureElement } from '../../utils/utils';
 import { Form } from './Form';
 
-export class Contacts extends Form<IContacts> {
+export class ContactForm extends Form<IContacts> {
 	protected _email: HTMLInputElement;
 	protected _phone: HTMLInputElement;
 

@@ -2,7 +2,7 @@ import { ISuccess, ISuccessActions } from '../../types';
 import { ensureElement, handlePrice } from '../../utils/utils';
 import { Component } from '../base/Component';
 
-export class Success extends Component<ISuccess> {
+export class SuccessMessage extends Component<ISuccess> {
 	protected _button: HTMLButtonElement;
 	protected _description: HTMLElement;
 

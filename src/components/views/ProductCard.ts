@@ -1,16 +1,16 @@
-import { CategoryType, IProduct, ICardActions } from '../../types';
+import { CategoryType, IProductInfo, ICardActions } from '../../types';
 import { CDN_URL, categorySelectors } from '../../utils/constants';
 import { ensureElement, handlePrice } from '../../utils/utils';
 import { Component } from '../base/Component';
 
-export class Card extends Component<IProduct> {
+export class ProductCard extends Component<IProductInfo> {
 	protected _title: HTMLElement;
 	protected _category: HTMLElement;
 	protected _image: HTMLImageElement;
 	protected _price: HTMLElement;
 	protected _description: HTMLElement;
 	protected _button: HTMLButtonElement;
-	protected _basketIndex: HTMLElement;
+	protected _displayIndex: HTMLElement;
 	protected _deleteFromBasketButton: HTMLButtonElement;
 
 	constructor(
@@ -26,7 +26,7 @@ export class Card extends Component<IProduct> {
 		this._price = container.querySelector(`.${blockName}__price`);
 		this._button = container.querySelector(`.${blockName}__button`);
 		this._description = container.querySelector(`.${this.blockName}__text`);
-		this._basketIndex = container.querySelector(`.basket__item-index`);
+		this._displayIndex = container.querySelector(`.basket__item-index`);
 		this._deleteFromBasketButton =
 			container.querySelector(`.basket__item-delete`);
 
@@ -45,7 +45,7 @@ export class Card extends Component<IProduct> {
 		}
 	}
 
-	switchButtonText(item: IProduct) {
+	updateButtonLabel(item: IProductInfo) {
 		if (item.inBasket) {
 			this.setText(this._button, 'Убрать из корзины');
 		} else {
@@ -81,7 +81,7 @@ export class Card extends Component<IProduct> {
 			value ? handlePrice(value) + ' синапсов' : 'Бесценно'
 		);
 
-		// Для бесценного товара блокируем кнопку добавления в корзину 
+		// Для бесценного товара блокируем кнопку добавления в корзину
 		if (this._button && value === null) {
 			this._button.disabled = true;
 		}
@@ -100,9 +100,9 @@ export class Card extends Component<IProduct> {
 		}
 	}
 
-	set basketIndex(value: number) {
-		if (this._basketIndex) {
-			this._basketIndex.textContent = value.toString();
+	set displayIndex(value: number) {
+		if (this._displayIndex) {
+			this._displayIndex.textContent = value.toString();
 		}
 	}
 }

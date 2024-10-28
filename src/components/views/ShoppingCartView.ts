@@ -2,7 +2,7 @@ import { IBasket, IEvents } from '../../types';
 import { createElement, handlePrice } from '../../utils/utils';
 import { Component } from '../base/Component';
 
-export class Basket extends Component<IBasket> {
+export class ShoppingCartView extends Component<IBasket> {
 	protected _list: HTMLElement;
 	protected _total: HTMLElement;
 	protected _button: HTMLButtonElement;
