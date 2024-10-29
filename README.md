@@ -76,7 +76,8 @@ MVC-паттерн делит код на три слоя:
 
 ###
 
-![MVC(1 1) WEB-LAREK drawio](https://github.com/user-attachments/assets/c3a08c28-e461-4c3a-acf5-4fb1cd83e589)
+![MVC WEB-LAREK drawio](https://github.com/user-attachments/assets/a584be68-26e8-4467-a4ba-f911c17a9372)
+
 
 ## Базовый код
 
@@ -391,3 +392,12 @@ MVC-паттерн делит код на три слоя:
 - `type CategoryType` - варианты категорий товаров
 - `type PaymentOptions` - возможные способы оплаты (онлайн/офлайн)
 - `type IOrderDetails` - это комплексный тип для данных заказа. Он объединяет: товары в корзине, информацию о доставке, контактные данные пользователя, состояние валидации формы.
+
+## Итоговый вид проектной работы:
+
+![present1](https://github.com/user-attachments/assets/9f9bac7d-3a95-434a-9d2e-fd8e1d15f14a)
+![present2](https://github.com/user-attachments/assets/7956dd7b-6fc2-45cf-8972-e8aff4386c9b)
+![present3](https://github.com/user-attachments/assets/60346821-d9b1-456c-8cc0-ed58f162bec0)
+![present4](https://github.com/user-attachments/assets/e06cb4cd-7d92-4eef-98e0-1299d5818f4a)
+![present5](https://github.com/user-attachments/assets/22469570-04dc-4343-885c-0fc31ba181a8)
+![present6](https://github.com/user-attachments/assets/320cd9a6-bc84-441f-b58e-c78c93e97a22)
