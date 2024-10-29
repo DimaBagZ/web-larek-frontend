@@ -199,6 +199,8 @@ eventEmitter.on('order:submit', () => {
 	modalWindow.renderContent({
 		content: contactForm.renderContent(orderDetails),
 	});
+	// Сброс формы перед открытием модального окна
+	contactForm.resetForm();
 });
 
 // Обработка изменения электронной почты

@@ -21,6 +21,7 @@ export class ShoppingCartView extends Component<IBasket> {
 		if (this._button) {
 			this._button.addEventListener('click', () => events.emit('basket:order'));
 		}
+		this.items =[];
 	}
 
 	set total(price: number) {

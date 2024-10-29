@@ -30,6 +30,7 @@ export class ProductCard extends Component<IProductInfo> {
 		this._deleteFromBasketButton =
 			container.querySelector(`.basket__item-delete`);
 
+		// Устанавливаем обработчики событий
 		if (actions?.onClick) {
 			if (this._button) {
 				this._button.addEventListener('click', actions.onClick);
@@ -87,8 +88,12 @@ export class ProductCard extends Component<IProductInfo> {
 		}
 	}
 
+	// Метод для установки категории с нужным классом
 	set category(value: CategoryType) {
 		if (this._category) {
+			// Очищаем предыдущий класс категории
+			this._category.classList.remove(...Object.values(categorySelectors));
+			// Устанавливаем новую категорию и добавляем класс
 			this.setText(this._category, value);
 			this._category.classList.add(categorySelectors[value]);
 		}

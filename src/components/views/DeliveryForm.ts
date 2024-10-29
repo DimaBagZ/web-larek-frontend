@@ -6,35 +6,49 @@ export class DeliveryForm extends Form<IDeliveryDetails> {
 	protected _card: HTMLButtonElement;
 	protected _cash: HTMLButtonElement;
 	protected _address: HTMLInputElement;
+	protected _submitButton: HTMLButtonElement;
 
 	constructor(container: HTMLFormElement, events: IEvents) {
 		super(container, events);
 
+		// Поле адреса
 		this._address = ensureElement<HTMLInputElement>(
-			'.form__input[name=address]',
+			'.form__input[name="address"]',
 			container
 		);
-		this._address.addEventListener('click', () => {
-			this.onInputChange('address', this._address.value);
-		});
+		this._address.addEventListener('input', () => this.handleInputChange());
 
-		this._card = ensureElement<HTMLButtonElement>(
-			'.button_alt[name=card]',
+		// Кнопка сабмита
+		this._submitButton = ensureElement<HTMLButtonElement>(
+			'.order__button',
 			container
 		);
+
+		// Кнопки выбора способа оплаты
+		this._card = ensureElement<HTMLButtonElement>(
+			'.button_alt[name="card"]',
+			container
+		);
+		this._cash = ensureElement<HTMLButtonElement>(
+			'.button_alt[name="cash"]',
+			container
+		);
+
 		this._card.addEventListener('click', () => {
 			this.paymentMethod = 'онлайн';
 			this.onInputChange('payment', 'онлайн');
 		});
 
-		this._cash = ensureElement<HTMLButtonElement>(
-			'.button_alt[name=cash]',
-			container
-		);
 		this._cash.addEventListener('click', () => {
 			this.paymentMethod = 'при получении';
 			this.onInputChange('payment', 'при получении');
 		});
+	}
+
+	// Метод для активации кнопки сабмита, если поле адреса заполнено
+	private handleInputChange() {
+		const isFormValid = this._address.value.trim() !== '';
+		this._submitButton.disabled = !isFormValid;
 	}
 
 	set address(value: string) {
